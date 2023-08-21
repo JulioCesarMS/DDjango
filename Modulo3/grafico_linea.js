@@ -24,9 +24,9 @@ function makeplot() {
       y: y
     }];
   
-    Plotly.newPlot('grafica01', traces,
-      {title: 'Homicidios cometidos por año en México'});
+    Plotly.newPlot('grafica01', traces);
   };
 makeplot();
+
 
 

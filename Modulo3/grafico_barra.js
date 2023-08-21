@@ -1,12 +1,11 @@
-
 // Bar plot
-function makeplot() {
-  Plotly.d3.csv("https://raw.githubusercontent.com/JulioCesarMS/DDjango/master/Modulo3/datasets/homicidios_estado.csv", function(data){ processData(data) } );
+function makeplot2() {
+  Plotly.d3.csv("https://raw.githubusercontent.com/JulioCesarMS/DDjango/master/Modulo3/datasets/homicidios_estado.csv", function(data){ processData2(data) } );
 
 };
 
-function processData(allRows) {
-  
+function processData2(allRows) {
+
   console.log(allRows);
   var x = [], y = [];
 
@@ -15,19 +14,21 @@ function processData(allRows) {
     x.push( row['Etiquetas de fila'] );
     y.push( row['Total'] );
   }
-  console.log( 'X',x, 'Y',y );
-  makePlotly( x, y);
+  console.log( 'X1',x, 'Y1',y );
+  makePlotly2( x, y);
 }
 
-var data = [
-  {
+function makePlotly2( x, y ){
+  var plotDiv = document.getElementById("plot");
+  var traces = [{
     x: x,
     y: y,
-    type: 'bar'
-  }
-];
+    type: 'bar',
+  }];
 
-Plotly.newPlot('grafica02', data);
+  Plotly.newPlot('grafica02', traces);
+};
+makeplot2();
 
 
 

@@ -8,18 +8,57 @@
     
     <link rel="stylesheet" href="styles.css">
 </head>
-    <h1> Gráficos </h1>
+
+
 <body>
-    <div id="grafica01">
+    <header>
+        <div id="head">
+            <h1> Delitos cometidos en México </h1>
+            <h2> (2015-2022) </h2>
+            <hr>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex enim praesentium soluta labore veniam! Nam soluta explicabo recusandae quod doloremque ad, assumenda nemo quas minus sed consequuntur atque eum corporis!</h3>
+        </div>
+    </header>
+    <!-- <div id="container">
+        <div id="grafica01">
 
-    </div>
-    <br><br>
-    <div id="grafica02">
+        </div>
+        <br><br> <br><br>
+        <div id="grafica02">
+    
+        </div>
+    </div> -->
 
+    <div class="row">
+        <div class="column">
+          <div class="card">
+            <p class="titulo"> Homicidios cometidos por año en México</p>
+            <div id="grafica01"></div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card" >
+            <p class="titulo"> Homicidios cometidos por entidad</p>
+            <div id="grafica02"></div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <p class="titulo"> Título tercer gráfico</p>
+            <div id="grafica02"></div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <p class="titulo"> Título cuarto gráfico</p>
+            <div id="grafica04"></div>
+          </div>
+        </div>
     </div>
     
     
     <script src="grafico_linea.js"></script>
+    <script src="grafico_barra.js"></script>
     
 </body>
 </html>
