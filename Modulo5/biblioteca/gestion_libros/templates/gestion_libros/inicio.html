@@ -1,0 +1,9 @@
+{% extends 'gestion_libros/base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<h2>Bienvenido a la Biblioteca</h2>
+<p>Utiliza el menú para gestionar tus libros.</p>
+<a href="{% url 'lista_libros' %}">Ver mis libros</a>
+{% endblock %}

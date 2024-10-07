@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Biblioteca{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'gestion_libros/css/estilos.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                {% if user.is_authenticated %}
+                
+                    <li><a href="{% url 'nuevo_libro' %}">Registrar Libro</a></li>
+                    <li><a href="{% url 'lista_libros' %}">Mis Libros</a></li>
+                    <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+                    <li><a href="{% url 'registro' %}">Registrarse</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>Biblioteca - Sistema de Gestión de Libros © 2024</p>
+    </footer>
+</body>
+</html>

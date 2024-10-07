@@ -1,0 +1,15 @@
+{% extends 'gestion_libros/base.html' %}
+
+{% block title %}Detalles de {{ libro.titulo }}{% endblock %}
+
+{% block content %}
+<h2>{{ libro.titulo }}</h2>
+<p><strong>Descripción:</strong> {{ libro.descripcion }}</p>
+<p><strong>Categoría:</strong> {{ libro.categoria.titulo }}</p>
+<p><strong>Estado:</strong> {{ libro.estado.titulo }}</p>
+<p><strong>Fecha de creación:</strong> {{ libro.fecha_creacion }}</p>
+<p><strong>Última actualización:</strong> {{ libro.fecha_actualizacion }}</p>
+
+<a href="{% url 'editar_libro' libro.id %}">Editar</a>
+<a href="{% url 'eliminar_libro' libro.id %}">Eliminar</a>
+{% endblock %}

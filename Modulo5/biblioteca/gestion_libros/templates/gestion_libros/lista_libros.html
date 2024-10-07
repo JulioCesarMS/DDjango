@@ -1,0 +1,53 @@
+{% extends 'gestion_libros/inicio.html' %}
+
+{% load static %}
+
+{% block title %}Lista de Libros{% endblock %}
+
+{% block content %}
+<h1>Lista de Libros</h1>
+
+<a href="{% url 'nuevo_libro' %}">Agregar Nuevo Libro</a>
+
+{% if libros %}
+    <div class="libros-list">
+        {% for libro in libros %}
+            <div class="libro-card">
+                <h2>{{ libro.titulo }}</h2>
+                <p><strong>Descripción:</strong> {{ libro.descripcion }}</p>
+                <p><strong>Categoría:</strong> <span class="badge">{{ libro.categoria.titulo }}</span></p>
+                <p><strong>Estado:</strong> <span class="badge">{{ libro.estado.titulo }}</span></p>
+                <p><strong>Registrado por:</strong> {{ libro.usuario.username }}</p>
+                <p><strong>Fecha de Creación:</strong> {{ libro.fecha_creacion|date:"D d M Y" }}</p>
+                <a href="{% url 'detalle_libro' libro.id %}">Ver Detalles</a>
+                <a href="{% url 'editar_libro' libro.id %}">Editar</a>
+                <a href="{% url 'eliminar_libro' libro.id %}">Eliminar</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Agrega paginación si es necesario -->
+    <div class="pagination">
+        {% if is_paginated %}
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
+                {% endif %}
+            </span>
+        {% endif %}
+    </div>
+
+{% else %}
+    <p>No hay libros registrados.</p>
+{% endif %}
+{% endblock %}
